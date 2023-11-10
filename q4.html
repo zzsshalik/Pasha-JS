@@ -1,0 +1,35 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #square1, #square2 {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 10px;
+    }
+
+    #square1 {
+      background-color: red;
+    }
+
+    #square2 {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+    <button onclick="decreaseCounter()">[-]</button>
+    <span id="counter">0</span>
+    <button onclick="increaseCounter()">[+]</button>
+
+    <div id="square1"></div>
+    <div id="square2"></div>
+
+    <script src="js/js4.js"></script>
+
+    <div id="colorSquare1" class="square"></div>
+    <input type="color" id="colorPicker" onchange="changeColor()">
+    <div id="colorSquare2" class="square"></div>
+</body>
+</html>
