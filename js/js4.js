@@ -11,9 +11,6 @@ setInterval(changeColor, 3000);
 function changeColor() {
     var square = document.getElementById('square1');
     square.style.backgroundColor = getRandomColor();
-    var colorPicker = document.getElementById('colorPicker').value;
-    var colorSquare2 = document.getElementById('square2');
-    square2.style.backgroundColor = colorPicker;
 }
 
 function decreaseCounter() {
@@ -38,4 +35,10 @@ window.onload = function () {
     } else {
         counterElement.innerText = '0';
     }
+}
+
+function changeColorSquare2() {
+var colorPicker = document.getElementById('colorPicker').value;
+var colorSquare2 = document.getElementById('square2');
+square2.style.backgroundColor = colorPicker;
 }
