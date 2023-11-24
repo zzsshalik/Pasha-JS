@@ -1,14 +1,140 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="css/q2.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-gap: 2px;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cell:hover {
+            background-color: #eee;
+        }
+
+        #restart-btn {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Tic Tac Toe</title>
 </head>
 <body>
-  Сова, Олень, Курица, Человек, Жираф
-    <h1>Танки говно</h1>
-    <h2>Текст</h2>
-    <h3>Просто текст</h3>
-<div>Иди учи уроки, дебил</div>
-<script src="js/js1.js"></script>
+    <div id="game-board"></div>
+    <button id="restart-btn" onclick="restartGame()">Restart Game</button>
+
+    <script>
+        let currentPlayer = 'X';
+        let gameBoard = JSON.parse(localStorage.getItem('ticTacToe')) || ['', '', '', '', '', '', '', '', ''];
+        const cells = document.getElementById('game-board');
+        const restartBtn = document.getElementById('restart-btn');
+
+        // Initialize the game board
+        function initializeGame() {
+    for (let i = 0; i < 9; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.addEventListener('click', () => makeMove(i));
+        cells.appendChild(cell);
+    }
+
+    updateBoard(); // Add this line to update the board after initialization
+}
+
+        // Function to handle a player's move
+        function makeMove(index) {
+            if (gameBoard[index] === '' && !checkWinner()) {
+                gameBoard[index] = currentPlayer;
+                updateBoard();
+                togglePlayer();
+                saveGameState();
+            }
+        }
+
+        // Function to update the game board display
+        function updateBoard() {
+    const cellElements = document.querySelectorAll('.cell');
+    cellElements.forEach((cell, index) => {
+        cell.textContent = gameBoard[index];
+        cell.style.color = gameBoard[index] === 'X' ? 'red' : 'blue';
+    });
+}
+
+        // Function to toggle between players (X and O)
+        function togglePlayer() {
+            currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+
+        // Function to check for a winner
+        function checkWinner() {
+            const winningCombos = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+                [0, 4, 8], [2, 4, 6]             // Diagonals
+            ];
+
+            for (const combo of winningCombos) {
+                const [a, b, c] = combo;
+                if (gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
+                    alert(`${gameBoard[a]} wins!`);
+                    return true;
+                }
+            }
+
+            if (!gameBoard.includes('')) {
+                alert('It\'s a tie!');
+                return true;
+            }
+
+            return false;
+        }
+
+        // Function to save the game state to localStorage
+        function saveGameState() {
+            localStorage.setItem('ticTacToe', JSON.stringify(gameBoard));
+        }
+
+        // Function to restart the game
+        function restartGame() {
+            gameBoard = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            updateBoard();
+            saveGameState();
+        }
+
+        // Check if there is a saved game state in localStorage
+const savedGameState = JSON.parse(localStorage.getItem('ticTacToe'));
+
+if (savedGameState) {
+    gameBoard = savedGameState;
+    currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'X' : 'O';
+    initializeGame();
+} else {
+    initializeGame();
+}
+    </script>
 </body>
 </html>
