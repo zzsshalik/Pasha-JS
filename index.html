@@ -52,7 +52,7 @@
             font-weight: bold;
         }
     </style>
-    <title>Tic Tac Toe</title>
+    <title>Крестики Нолики</title>
 </head>
 <body>
     <div id="game-container">
@@ -67,6 +67,7 @@
         const cells = document.getElementById('game-board');
         const restartBtn = document.getElementById('restart-btn');
         const winnerMessage = document.getElementById('winner-message');
+
 
         function initializeGame() {
             for (let i = 0; i < 9; i++) {
@@ -140,7 +141,7 @@
 
         if (savedGameState) {
             gameBoard = savedGameState;
-            currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'X' : 'O';
+            currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'O' : 'X';
             initializeGame();
         } else {
             initializeGame();
