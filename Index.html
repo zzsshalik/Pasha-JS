@@ -12,6 +12,12 @@
             margin: 0;
         }
 
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
         #game-board {
             display: grid;
             grid-template-columns: repeat(3, 50px);
@@ -39,32 +45,40 @@
             font-size: 16px;
             cursor: pointer;
         }
+
+        #winner-message {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div id="game-board"></div>
-    <button id="restart-btn" onclick="restartGame()">Restart Game</button>
+    <div id="game-container">
+        <div id="game-board"></div>
+        <button id="restart-btn" onclick="restartGame()">Restart Game</button>
+        <div id="winner-message"></div>
+    </div>
 
     <script>
         let currentPlayer = 'X';
         let gameBoard = JSON.parse(localStorage.getItem('ticTacToe')) || ['', '', '', '', '', '', '', '', ''];
         const cells = document.getElementById('game-board');
         const restartBtn = document.getElementById('restart-btn');
+        const winnerMessage = document.getElementById('winner-message');
 
-        // Initialize the game board
         function initializeGame() {
-    for (let i = 0; i < 9; i++) {
-        const cell = document.createElement('div');
-        cell.className = 'cell';
-        cell.addEventListener('click', () => makeMove(i));
-        cells.appendChild(cell);
-    }
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.className = 'cell';
+                cell.addEventListener('click', () => makeMove(i));
+                cells.appendChild(cell);
+            }
 
-    updateBoard(); // Add this line to update the board after initialization
-}
+            updateBoard();
+        }
 
-        // Function to handle a player's move
         function makeMove(index) {
             if (gameBoard[index] === '' && !checkWinner()) {
                 gameBoard[index] = currentPlayer;
@@ -74,21 +88,26 @@
             }
         }
 
-        // Function to update the game board display
         function updateBoard() {
-    const cellElements = document.querySelectorAll('.cell');
-    cellElements.forEach((cell, index) => {
-        cell.textContent = gameBoard[index];
-        cell.style.color = gameBoard[index] === 'X' ? 'red' : 'blue';
-    });
-}
+            const cellElements = document.querySelectorAll('.cell');
+            cellElements.forEach((cell, index) => {
+                cell.textContent = gameBoard[index];
+                cell.style.color = gameBoard[index] === 'X' ? 'red' : 'blue';
+            });
 
-        // Function to toggle between players (X and O)
+            if (checkWinner()) {
+                winnerMessage.textContent = `${currentPlayer} wins!`;
+            } else if (!gameBoard.includes('')) {
+                winnerMessage.textContent = 'It\'s a tie!';
+            } else {
+                winnerMessage.textContent = '';
+            }
+        }
+
         function togglePlayer() {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
         }
 
-        // Function to check for a winner
         function checkWinner() {
             const winningCombos = [
                 [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -99,25 +118,17 @@
             for (const combo of winningCombos) {
                 const [a, b, c] = combo;
                 if (gameBoard[a] !== '' && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-                    alert(`${gameBoard[a]} wins!`);
                     return true;
                 }
-            }
-
-            if (!gameBoard.includes('')) {
-                alert('It\'s a tie!');
-                return true;
             }
 
             return false;
         }
 
-        // Function to save the game state to localStorage
         function saveGameState() {
             localStorage.setItem('ticTacToe', JSON.stringify(gameBoard));
         }
 
-        // Function to restart the game
         function restartGame() {
             gameBoard = ['', '', '', '', '', '', '', '', ''];
             currentPlayer = 'X';
@@ -125,16 +136,15 @@
             saveGameState();
         }
 
-        // Check if there is a saved game state in localStorage
-const savedGameState = JSON.parse(localStorage.getItem('ticTacToe'));
+        const savedGameState = JSON.parse(localStorage.getItem('ticTacToe'));
 
-if (savedGameState) {
-    gameBoard = savedGameState;
-    currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'X' : 'O';
-    initializeGame();
-} else {
-    initializeGame();
-}
+        if (savedGameState) {
+            gameBoard = savedGameState;
+            currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'X' : 'O';
+            initializeGame();
+        } else {
+            initializeGame();
+        }
     </script>
 </body>
 </html>
