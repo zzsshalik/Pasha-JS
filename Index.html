@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +52,7 @@
             font-weight: bold;
         }
     </style>
-    <title>Tic Tac Toe</title>
+    <title>Крестики Нолики</title>
 </head>
 <body>
     <div id="game-container">
@@ -67,6 +67,7 @@
         const cells = document.getElementById('game-board');
         const restartBtn = document.getElementById('restart-btn');
         const winnerMessage = document.getElementById('winner-message');
+
 
         function initializeGame() {
             for (let i = 0; i < 9; i++) {
@@ -110,9 +111,9 @@
 
         function checkWinner() {
             const winningCombos = [
-                [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
-                [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
-                [0, 4, 8], [2, 4, 6]             // Diagonals
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+                [0, 4, 8], [2, 4, 6]             
             ];
 
             for (const combo of winningCombos) {
@@ -140,7 +141,7 @@
 
         if (savedGameState) {
             gameBoard = savedGameState;
-            currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'X' : 'O';
+            currentPlayer = gameBoard.filter(cell => cell !== '').length % 2 === 0 ? 'O' : 'X';
             initializeGame();
         } else {
             initializeGame();
