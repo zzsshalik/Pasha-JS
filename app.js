@@ -24,10 +24,12 @@ nextButton.addEventListener('click', function () {
 videosContainer.addEventListener('click', function(event) {
   if (event.target && event.target.classList.contains("favouriteButton")) {
     let id = event.target.getAttribute("data-id");
-    console.log(id)
+    
     if (hasFavoriteVideo(id)) {
       removeFavoriteVideo(id);
       event.target.textContent = "+";
+      if (isfav)
+        event.target.closest('.video-block').remove()
     } else {
       addFavoriteVideo(id);
       event.target.textContent = "-";
