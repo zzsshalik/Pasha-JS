@@ -279,7 +279,7 @@ body {
     font-size: 46px;
  }
  .video-block {
-    width: 45%;
+    width: 75%;
 }
          .logo-container {
         width: 45%;
@@ -291,7 +291,7 @@ body {
         font-size: 36px;
      }  
      .video-block {
-        width: 35%;
+        width: 60%;
     }
          .logo-container {
         width: 35%;
@@ -303,7 +303,7 @@ body {
         font-size: 28px;
      }
      .video-block {
-        width: 25%;
+        width: 45%;
     }
          .logo-container {
         width: 25%;
@@ -315,7 +315,7 @@ body {
         font-size: 16px;
      }
      .video-block {
-        width: 15%;
+        width: 30%;
     }
      .logo-container {
         width: 15%;
