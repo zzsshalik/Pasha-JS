@@ -278,22 +278,35 @@ body {
  h1 {
     font-size: 46px;
  }
+ .video-block {
+    width: 45%;
+}
 }
 
 @media screen and (max-width: 998px) {
     h1 {
         font-size: 36px;
      }  
+     .video-block {
+        width: 35%;
+    }
 }
 
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 28px;
      }
+     .video-block {
+        width: 25%;
+    }
 } 
 
 @media screen and (max-width: 576px) {
     h1 {
         font-size: 16px;
      }
+     .video-block {
+        width: 15%;
+    }
 }
+
