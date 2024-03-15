@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyCuMfoHylIlx139aUSuSkOrcraOUo1zgEA';
+const apiKey = 'AIzaSyA9L2uVsp7jko2_5N2IGD-Aa2HgddgwctM';
 const apiUrl = 'https://www.googleapis.com/youtube/v3/search';
 const searchQuery = '';
 const maxResults = 20;
