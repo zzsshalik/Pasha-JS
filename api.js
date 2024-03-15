@@ -5,7 +5,7 @@ const maxResults = 20;
 const maxResultsPerPage = 6;
 let page = 0;
 let lastdata = [];
-
+let isfav = false;
 const videosContainer = document.getElementById('videos-container');
 const previousButton = document.getElementById('previous');
 const nextButton = document.getElementById('next');
@@ -19,7 +19,7 @@ async function fetchVideoFromId(id) {
 async function fetchFavoriteData() {
     let videos = getFavoriteVideos();
     let videosData = await Promise.all(videos.map(x => fetchVideoFromId(x)));
-
+    isfav = true;
     lastdata = {"items": [...videosData.filter(x => x.items.length > 0).map(x => x.items[0])]};
     displayVideos();        
     updateButtonsState();
