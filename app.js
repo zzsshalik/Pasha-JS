@@ -58,3 +58,9 @@ function removeFavoriteVideo(video) {
     localStorage.setItem("favoriteVideos", JSON.stringify(videos));
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        document.body.style.overflow = 'auto';
+    }, 3000);
+});
