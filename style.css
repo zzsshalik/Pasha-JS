@@ -281,6 +281,9 @@ body {
  .video-block {
     width: 45%;
 }
+         .logo-container {
+        width: 45%;
+    }
 }
 
 @media screen and (max-width: 998px) {
@@ -288,6 +291,9 @@ body {
         font-size: 36px;
      }  
      .video-block {
+        width: 35%;
+    }
+         .logo-container {
         width: 35%;
     }
 }
@@ -299,6 +305,9 @@ body {
      .video-block {
         width: 25%;
     }
+         .logo-container {
+        width: 25%;
+    }
 } 
 
 @media screen and (max-width: 576px) {
@@ -306,6 +315,9 @@ body {
         font-size: 16px;
      }
      .video-block {
+        width: 15%;
+    }
+     .logo-container {
         width: 15%;
     }
 }
