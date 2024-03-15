@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Fav</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="toggle-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <img src="img/logo.PNG" class="logo" alt="">
+        <div class="search-box">
+            <input type="text" class="search-bar" placeholder="search" id="search-input">
+            <button class="search-btn" id="search-btn"><img src="img/search.PNG" alt=""></button>
+        </div>
+
+    </nav>
+
+    <div class="side-bar">
+        <a href="./q6.html" class="links"><img src="img/liked video.PNG" alt="">like video</a>
+        <a href="./q5.html" class="links"><img src="img/search.PNG" alt="">search video</a>
+    </div>
+    <div id="logo-container">
+        <img id="logo" src="img/logo1.png" alt="Logo">
+    </div>
+
+    <div class="container">
+        <div id="videos-container" class="row"></div>
+        <div class="buttons">
+            <button id="previous" disabled>Прошлое</button>
+            <button id="next">Далее</button>
+        </div>
+    </div>
+
+    <script src="logo.js"></script>
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+    <script>
+        fetchFavoriteData();
+    </script>
+</body>
+
+</html>
