@@ -27,12 +27,12 @@ videosContainer.addEventListener('click', function(event) {
     
     if (hasFavoriteVideo(id)) {
       removeFavoriteVideo(id);
-      event.target.textContent = "+";
+      event.target.textContent = "add";
       if (isfav)
         event.target.closest('.video-block').remove()
     } else {
       addFavoriteVideo(id);
-      event.target.textContent = "-";
+      event.target.textContent = "remove";
     }
   }
 });
