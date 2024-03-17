@@ -357,6 +357,10 @@ body {
     }
 }
 
+.video-block button {
+    width: 80%;
+}
+
 body {
     overflow: hidden;
  
