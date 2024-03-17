@@ -62,7 +62,7 @@ function displayVideos() {
         const buttonElement = document.createElement('button');
         buttonElement.classList.add('favouriteButton');
         buttonElement.setAttribute('data-id', videoId);
-        buttonElement.textContent = hasFavoriteVideo(videoId) ? "-" : "+";
+        buttonElement.textContent = hasFavoriteVideo(videoId) ? "remove" : "add";
 
         videoBlock.appendChild(iframe);
         videoBlock.appendChild(titleElement);
