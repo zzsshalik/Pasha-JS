@@ -350,16 +350,15 @@ body {
         width: 60%;
         margin-left: 50px;
     }
-
-    .side-bar {
+       .video-block button {
+    width: 10%;
+       }
+           .side-bar {
      width: 33%;
      
     }
 }
 
-.video-block button {
-    width: 10%;
-}
 
 body {
     overflow: hidden;
