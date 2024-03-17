@@ -82,10 +82,12 @@ body {
     border: 2px solid #dbdbdb;
     padding: 5px 0;
     border-left: none;
+    cursor: pointer;
 }
 
 .search-btn img {
     height: 100%;
+    cursor: pointer;
 }
 
 .user-options {
@@ -246,18 +248,21 @@ body {
 /*  */
 .buttons {
     padding-bottom: 20px;
+    cursor: pointer;
 }
 
 .buttons {
     display: block;
     width: fit-content;
     margin: 20px auto;
+    cursor: pointer;
 }
 
 .buttons button {
     display: inline-block;
     margin: 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 .video-block h5 {
@@ -275,6 +280,7 @@ body {
     right: 14px;
     bottom: 10px;
     width: 47px;
+    cursor: pointer;
 }
 
 
