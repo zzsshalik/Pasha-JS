@@ -66,3 +66,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.overflow = 'auto';
     }, 3000);
 });
+
+searchInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const searchQuery = searchInput.value;
+  
+    fetchYouTubeData(searchQuery);
+  }
+});
+searchButton.addEventListener('click', () => {
+  const searchQuery = searchInput.value;
+
+  fetchYouTubeData(searchQuery);
+});
