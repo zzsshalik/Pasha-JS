@@ -343,16 +343,17 @@ body {
        }
    }
    @media screen and (max-width: 420px) {
- h1 {
+h1 {
         font-size: 15px;
      }
      .video-block {
-        width: 80%;
+        width: 70%;
         margin-left: 70px;
     }
        .video-block button {
-    width: 25%;
-        margin-bottom: 15px;
+    width: 21%;
+        margin-bottom: 13.5px;
+        left: 90px;
        }
            .side-bar {
      width: 33%;
