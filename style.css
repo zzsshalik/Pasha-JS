@@ -109,11 +109,11 @@ body {
 .side-bar {
     position: fixed;
     top: 60px;
-    left: 10;
-    width: 3%;
-    height: calc(100vh - 10px);
+    left: 0;
+    width: 15%;
+    height: calc(100vh - 60px);
     background: #fff;
-    padding-right: 20px;
+    padding-right: 10px;
     z-index: 1;
 }
 
@@ -285,13 +285,6 @@ body {
 
 
 
-@media screen and (max-width: 1700px) {
-    .side-bar {
-    width: 4%;
-}
-
-
-
 
 @media screen and (max-width: 1200px) {
     h1 {
@@ -301,7 +294,7 @@ body {
        width: 75%;
    }
    .side-bar {
-    width: 16%;
+    width: 15%;
     
    }
    }
@@ -314,7 +307,7 @@ body {
            width: 60%;
        }
        .side-bar {
-        width: 16%;
+        width: 15%;
         
        }
 
@@ -329,7 +322,7 @@ body {
            margin-left: 35px;
        }
        .side-bar {
-        width: 16%;
+        width: 20%;
         
        }
 
@@ -345,7 +338,7 @@ body {
        }
 
        .side-bar {
-        width: 16%;
+        width: 30%;
         
        }
    }
@@ -354,21 +347,24 @@ h1 {
         font-size: 15px;
      }
      .video-block {
-        width: 950%;
-        margin-left: 0px;
-         margin-bottom: 25px;
-         padding: 15px
+        width: 70%;
+        margin-left: 70px;
     }
        .video-block button {
     width: 21%;
-    margin-bottom: -7px;
-    left: 250px;
-        right: 0.3px;
+        margin-bottom: 13.5px;
+        left: 90px;
        }
            .side-bar {
-     width: 16%;
+     width: 33%;
      
     }
+
+       .logo {
+    height: 40px;
+    margin: -10px 30px 0;
+    margin-bottom: -10px;
+}
 }
 
 
